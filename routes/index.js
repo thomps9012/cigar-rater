@@ -154,19 +154,4 @@ router.post("/login", passport.authenticate("local"), function (req, res) {
         })
     })
   })
-  
-  router.post("/users/add_points", (req, res) => {
-    console.log(req.body)
-    db.User.update({
-      points: req.body.points
-    }, {
-      where: {
-        id: req.body.id
-      }
-    })
-      .then(pointData => {
-        res.json(pointData)
-      }).catch(err => {
-        console.log(err)
-      })
-  })
+ 
